@@ -1,5 +1,6 @@
 {
-  "dependencies": {
+    "dependencies": {
+    "com.ptc.vuforia.engine": "file:com.ptc.vuforia.engine-10.22.5.tgz",
     "com.meta.xr.mrutilitykit": "64.0.0",
     "com.meta.xr.sdk.all": "64.0.0",
     "com.meta.xr.sdk.core": "64.0.0",
