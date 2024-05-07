@@ -7,7 +7,7 @@ public class cshFind : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log("start---daramiing!!");
     }
 
     // Update is called once per frame
