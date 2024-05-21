@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject helper; //도우미 캐릭
     public GameObject helperPos; //도우미 캐릭 생성장소
+    public GameObject Gun; //총 오브젝트
+    public GameObject GunPos; //총 생길위ㅊ
+    private bool isGun = false; //총이 있는지
 
     public Button startBtn; //startPanel_startBtn
     private bool start = false;
@@ -79,8 +82,23 @@ public class GameManager : MonoBehaviour
             uiStr = "그럼 포션을 먹어보자! 잘 부탁해!";
             setText(mainText, uiStr);
         }
+        if (start && explainInt == 7&&isGun==false)//테스트용
+        {
+            uiStr = "총이 생겼니?";
+            setText(mainText, uiStr);
+            appearGun();
+        }
 
     }
+
+    public void appearGun()
+    {
+        Instantiate(Gun, GunPos.transform.position, GunPos.transform.rotation);
+        isGun = true;
+    }
+
+
+
 
     public void nextText()
     {
