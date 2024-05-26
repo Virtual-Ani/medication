@@ -132,7 +132,7 @@ MonoBehaviour:
   ray: {fileID: 3869948406006317681}
   mask:
     serializedVersion: 2
-    m_Bits: 4195328
+    m_Bits: 0
   distance: 1000
   reticlePoint: {fileID: 2909019493795338536}
   showReticle: 1
