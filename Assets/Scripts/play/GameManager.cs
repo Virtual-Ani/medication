@@ -13,18 +13,38 @@ public class GameManager : MonoBehaviour
     public GameObject helper; //도우미 캐릭
     public GameObject helperPos; //도우미 캐릭 생성장소
     public GameObject Gun; //총 오브젝트
-    public GameObject GunPos; //총 생길위ㅊ
+    public GameObject GunPos; //총 생길위치
     private bool isGun = false; //총이 있는지
+
+    public GameObject mon1; //몹 캐릭1
+    public GameObject mon2; //몹 캐릭2
+    public GameObject mon3; //몹 캐릭3
+    private GameObject monPos1; //몹 생길위치
+    private GameObject monPos2; //몹 생길위치
+    private GameObject monPos3; //몹 생길위치
+
+    public GameObject portalPos;//약포탈 위치
+
+
+    public GameObject medicinePortal; //약포탈
+    public GameObject potion; //포션 에셋
+
+
 
     public Button startBtn; //startPanel_startBtn
     private bool start = false;
     private int explainInt = 0; //상황설명시 자막의 기준이 되는 변&
 
+    public float delayInSeconds = 3f;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        Invoke("ActivateObject", delayInSeconds);
+
         textPanel.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -37,10 +57,15 @@ public class GameManager : MonoBehaviour
 
     public void startPlay()
     {
+        Instantiate(medicinePortal, portalPos.transform.position, portalPos.transform.rotation);
+        Instantiate(mon1, monPos1.transform.position, monPos1.transform.rotation);
+        Instantiate(mon2, monPos2.transform.position, monPos2.transform.rotation);
+        Instantiate(mon3, monPos3.transform.position, monPos3.transform.rotation);
         startPanel.SetActive(false);
         start = true;
         textPanel.SetActive(true);
         Instantiate(helper, helperPos.transform.position, helperPos.transform.rotation);
+
         
     }
 
