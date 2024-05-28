@@ -3,92 +3,117 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+
 public class GameManager : MonoBehaviour
 {
-    public GameObject startPanel; //시작 패
-    public GameObject textPanel; //자막 패널
-    public TMP_Text mainText; //자막 text
+    //public GameObject startPanel; // 시작 패널
+    public GameObject textPanel; // 자막 패널
+    public TMP_Text mainText; // 자막 텍스트
     private string uiStr; // 자막에 들어갈 내용
 
-    public GameObject helper; //도우미 캐릭
-    public GameObject helperPos; //도우미 캐릭 생성장소
-    public GameObject Gun; //총 오브젝트
-    public GameObject GunPos; //총 생길위ㅊ
-    private bool isGun = false; //총이 있는지
+    public GameObject helper; // 도우미 캐릭터
+    public GameObject helperPos; // 도우미 캐릭터 생성 위치
+    public GameObject Gun; // 총 오브젝트
+    public GameObject GunPos; // 총 생성 위치
+    private bool isGun = false; // 총이 있는지 여부
 
-    public Button startBtn; //startPanel_startBtn
+    //public Button startBtn; // 시작 버튼
     private bool start = false;
-    private int explainInt = 0; //상황설명시 자막의 기준이 되는 변&
+    private int explainInt = 0; // 설명 상황을 표시하는 변수
 
+    public GameObject monsterPrefab; // 몬스터 프리팹
+    public Transform spawnArea; // 몬스터가 나타날 범위
+    public float spawnRadius = 10f; // 몬스터가 나타날 반경
+    public int numberOfMonsters = 5;
+    
 
-    // Start is called before the first frame update
     void Start()
     {
-        textPanel.SetActive(false);
+        StartCoroutine(StartDialogue()); // 대화 시작 코루틴 호출
     }
 
-    // Update is called once per frame
-    void Update()
+    
+
+    IEnumerator StartDialogue()
     {
-        setExplainUI(); //ExplainUI 관리
-
-    }
-
-
-    public void startPlay()
-    {
-        startPanel.SetActive(false);
-        start = true;
+        //startPanel.SetActive(false);
+        //start = true;
         textPanel.SetActive(true);
         Instantiate(helper, helperPos.transform.position, helperPos.transform.rotation);
-        
-    }
 
+        while (explainInt < 6) // 설명 텍스트가 더 이상 없을 때까지 반복
+        {
+            setExplainUI();
+            yield return new WaitForSeconds(7f); // 7초 대기
+            explainInt++; // 다음 텍스트로 넘어감
+        }
+        EndDialogue();
+    }
 
     public void setExplainUI()
     {
-        if (start&&explainInt==0)
+        
+        if (explainInt == 0)
         {
             uiStr = "안녕! 나는 친구가 용사가 될 수 있도록 도와줄 튼튼이라고해!\n(오른쪽에 있는 버튼을 눌러서 진행해줘)";
             setText(mainText, uiStr);
         }
-        if (start && explainInt == 1)
+
+        if (explainInt == 1)
         {
             uiStr = "몸에 나쁜 세균들이 몰려와서 우리를 괴롭히고있어! 저기 보이지?";
             setText(mainText, uiStr);
         }
-        if (start && explainInt == 2)
+
+        if (explainInt == 2)
         {
             uiStr = "친구가 세균을 물리쳐서 우리가 아프지않도록 도와줄 수 있을까?";
             setText(mainText, uiStr);
         }
-        if (start && explainInt == 3)
+
+
+        if (explainInt == 3)
         {
-            uiStr = "고마워! 앞에 보이는 빛나는 곳에 친구가 먹을 약을 놓아줄래?";
+            uiStr = "이제 곧 총이 생기고,\n그 총으로 세균들을 물리쳐주면 돼!";
             setText(mainText, uiStr);
         }
-        if (start && explainInt == 4)
+
+        if (explainInt == 4)
         {
-            uiStr = "좋아, 그럼 이제 그 약이 포션으로 바뀌어보일거야";
+            uiStr = "제한시간은 30초정도야.\n그럼 잘 부탁해!";
             setText(mainText, uiStr);
         }
-        if (start && explainInt == 5)
+
+        if (explainInt == 5)
         {
-            uiStr = "포션을 먹으면 총이 생기고,\n친구는 그 총으로 세균들을 물리쳐주면 돼!";
-            setText(mainText, uiStr);
-        }
-        if (start && explainInt == 6)
-        {
-            uiStr = "그럼 포션을 먹어보자! 잘 부탁해!";
-            setText(mainText, uiStr);
-        }
-        if (start && explainInt == 7&&isGun==false)//테스트용
-        {
-            uiStr = "총이 생겼니?";
+            uiStr = "세균을 물리쳐줘!";
             setText(mainText, uiStr);
             appearGun();
         }
 
+        
+    }
+
+    void EndDialogue()
+    {
+        textPanel.SetActive(false); // 텍스트 패널 숨기기
+        SpawnMonsters(); // 몬스터 생성 함수 호출
+    }
+
+    // 몬스터 생성 함수
+    void SpawnMonsters()
+    {
+        for (int i = 0; i < numberOfMonsters; i++)
+        {
+            
+            Vector3 randomPos = Random.insideUnitSphere * spawnRadius;
+            
+            randomPos += spawnArea.position; // spawnArea의 위치를 기준으로 
+            randomPos.y = 0; // Y축 위치를 조정
+
+            // 이 위치에 몬스터를 생성
+            Instantiate(monsterPrefab, randomPos, Quaternion.identity);
+        }
     }
 
     public void appearGun()
@@ -97,18 +122,7 @@ public class GameManager : MonoBehaviour
         isGun = true;
     }
 
-
-
-
-    public void nextText()
-    {
-        explainInt++;
-    }
     
-
-
-
-    // Text의 내용을 변경
     private void setText(TMP_Text text, string str)
     {
         text.text = str;

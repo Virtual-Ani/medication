@@ -10,6 +10,5 @@ public class Hittable : MonoBehaviour
     public void Hit()
     {
         OnHit?.Invoke();
-        Debug.Log(this.gameObject.name+" !!¸Â¾Ò´Ù!!");
     }
 }
