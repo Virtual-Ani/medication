@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -25,29 +25,32 @@ public class GameManager : MonoBehaviour
     public Transform spawnArea; // 몬스터가 나타날 범위
     public float spawnRadius = 10f; // 몬스터가 나타날 반경
     public int numberOfMonsters = 5;
-    
+
+    public Timer timerScript;
+    public GameObject TimerPanel; // 타이머 패널
 
     void Start()
     {
         StartCoroutine(StartDialogue()); // 대화 시작 코루틴 호출
-    }
 
-    
+    }
+   
 
     IEnumerator StartDialogue()
     {
         //startPanel.SetActive(false);
         //start = true;
-        textPanel.SetActive(true);
+        TimerPanel.SetActive(false);
         Instantiate(helper, helperPos.transform.position, helperPos.transform.rotation);
 
         while (explainInt < 6) // 설명 텍스트가 더 이상 없을 때까지 반복
         {
             setExplainUI();
-            yield return new WaitForSeconds(7f); // 7초 대기
+            yield return new WaitForSeconds(2f); // 7초 대기
             explainInt++; // 다음 텍스트로 넘어감
         }
         EndDialogue();
+        
     }
 
     public void setExplainUI()
@@ -96,24 +99,45 @@ public class GameManager : MonoBehaviour
 
     void EndDialogue()
     {
-        textPanel.SetActive(false); // 텍스트 패널 숨기기
+        textPanel.SetActive(false); // 텍스트 패널 숨기기     
         SpawnMonsters(); // 몬스터 생성 함수 호출
+        timerScript.StartTimer(); // 타이머 시작
+        TimerPanel.SetActive(true);
+    }
+
+    void SpawnMonster()
+    {
+        Vector3 randomPos = GetRandomPosition();
+        GameObject spawnedMonster = Instantiate(monsterPrefab, randomPos, Quaternion.identity);
+        StartCoroutine(DisappearMonster(spawnedMonster)); // 세균 사라짐과 재생성을 관리하는 코루틴
     }
 
     // 몬스터 생성 함수
     void SpawnMonsters()
     {
         for (int i = 0; i < numberOfMonsters; i++)
-        {
-            
-            Vector3 randomPos = Random.insideUnitSphere * spawnRadius;
-            
-            randomPos += spawnArea.position; // spawnArea의 위치를 기준으로 
-            randomPos.y = 0; // Y축 위치를 조정
-
+        {          
             // 이 위치에 몬스터를 생성
-            Instantiate(monsterPrefab, randomPos, Quaternion.identity);
+            SpawnMonster();
         }
+    }
+
+    // 수정된 몬스터 사라짐 및 재생성 코루틴
+    IEnumerator DisappearMonster(GameObject monster)
+    {
+        yield return new WaitForSeconds(3f); // 3초 대기
+        Destroy(monster); // 몬스터 오브젝트 파괴
+        yield return new WaitForSeconds(3f); // 다시 3초 대기
+        SpawnMonster(); 
+    }
+
+    // 무작위 위치 생성 함수
+    Vector3 GetRandomPosition()
+    {
+        Vector3 randomPos = Random.insideUnitSphere * spawnRadius;
+        randomPos += spawnArea.position; // spawnArea를 중심으로 위치 조정
+        randomPos.y = 0; // Y축 위치 조정
+        return randomPos;
     }
 
     public void appearGun()
@@ -122,7 +146,6 @@ public class GameManager : MonoBehaviour
         isGun = true;
     }
 
-    
     private void setText(TMP_Text text, string str)
     {
         text.text = str;
