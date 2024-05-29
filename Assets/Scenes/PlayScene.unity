@@ -760,14 +760,16 @@ MonoBehaviour:
   helper: {fileID: 919132149155446097, guid: 0dcc3221445084e35b603fe255049683, type: 3}
   helperPos: {fileID: 410891757}
   Gun: {fileID: 4177561446317065443, guid: 6b24237a75fa0a0459e8ae63421d1ea0, type: 3}
-  GunPos: {fileID: 18537093}
-  mon1: {fileID: 919132149155446097, guid: 2b214e05d864a490ab7c857615c022ac, type: 3}
-  mon2: {fileID: 919132149155446097, guid: e3124c44b8e2946c1a708928604fa849, type: 3}
-  mon3: {fileID: 919132149155446097, guid: 91a09670e8f664aedabb20ffcab20bd6, type: 3}
+  mon1: {fileID: 919132149155446097, guid: 76fcf31539ae0934d901ed9343509431, type: 3}
+  mon2: {fileID: 919132149155446097, guid: 975f963ab103d434bbf6d12acb6684f6, type: 3}
+  mon3: {fileID: 919132149155446097, guid: effb236d105aa264c9dbf69e9eb9ac21, type: 3}
+  monPos1: {fileID: 0}
+  monPos2: {fileID: 0}
+  monPos3: {fileID: 0}
+  portalPos: {fileID: 0}
   medicinePortal: {fileID: 4932088507883938021, guid: 0e5709a7ddb77924090c112cf73bb98a, type: 3}
   potion: {fileID: 1714471722824790, guid: a0197c88cc97736428c4b4f89a9890d7, type: 3}
   startBtn: {fileID: 417081281}
-  delayInSeconds: 3
 --- !u!4 &58621587
 Transform:
   m_ObjectHideFlags: 0
