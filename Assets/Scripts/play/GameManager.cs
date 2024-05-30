@@ -13,18 +13,16 @@ public class GameManager : MonoBehaviour
     public GameObject helper; //도우미 캐릭
     public GameObject helperPos; //도우미 캐릭 생성장소
     public GameObject Gun; //총 오브젝트
-    private GameObject GunPos; //총 생길위치
+    public GameObject GunPos; //총 생길위치
     private bool isGun = false; //총이 있는지
 
     public GameObject mon1; //몹 캐릭1
     public GameObject mon2; //몹 캐릭2
     public GameObject mon3; //몹 캐릭3
+    private GameObject monPos1; //몹 생길위치
+    private GameObject monPos2; //몹 생길위치
+    private GameObject monPos3; //몹 생길위치
 
-
-
-    public GameObject monPos1; //몹 생길위치
-    public GameObject monPos2; //몹 생길위치
-    public GameObject monPos3; //몹 생길위치
     public GameObject portalPos;//약포탈 위치
 
 
@@ -37,16 +35,15 @@ public class GameManager : MonoBehaviour
     private bool start = false;
     private int explainInt = 0; //상황설명시 자막의 기준이 되는 변&
 
-
+    public float delayInSeconds = 3f;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(DelayedStart(5.0f));
+        Invoke("ActivateObject", delayInSeconds);
 
-        
-
+        textPanel.SetActive(false);
         
     }
 
@@ -57,84 +54,19 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private IEnumerator DelayedStart(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-
-        textPanel.SetActive(false);
-        Debug.Log("기다렸땅");
-    }
-
-
 
     public void startPlay()
     {
-        monPos1 = GameObject.Find("MonsterSpot1");
-        monPos2 = GameObject.Find("MonsterSpot2");
-        monPos3 = GameObject.Find("MonsterSpot3");
-        portalPos = GameObject.Find("MedicineSpot");
-        GunPos = GameObject.Find("GunSpot");
-
-
-        if (portalPos != null)
-        {
-            Instantiate(medicinePortal, portalPos.transform.position, portalPos.transform.rotation);
-        }
-        else
-        {
-            Debug.LogError("portalPos가 설정되지 않았습니다.");
-        }
-
-        if (monPos1 != null)
-        {
-            Instantiate(mon1, monPos1.transform.position, monPos1.transform.rotation);
-        }
-        else
-        {
-            Debug.LogError("monPos1가 설정되지 않았습니다.");
-        }
-
-        if (monPos2 != null)
-        {
-            Instantiate(mon2, monPos2.transform.position, monPos2.transform.rotation);
-        }
-        else
-        {
-            Debug.LogError("monPos2가 설정되지 않았습니다.");
-        }
-
-        if (monPos3 != null)
-        {
-            Instantiate(mon3, monPos3.transform.position, monPos3.transform.rotation);
-        }
-        else
-        {
-            Debug.LogError("monPos3가 설정되지 않았습니다.");
-        }
-
+        Instantiate(medicinePortal, portalPos.transform.position, portalPos.transform.rotation);
+        Instantiate(mon1, monPos1.transform.position, monPos1.transform.rotation);
+        Instantiate(mon2, monPos2.transform.position, monPos2.transform.rotation);
+        Instantiate(mon3, monPos3.transform.position, monPos3.transform.rotation);
         startPanel.SetActive(false);
         start = true;
         textPanel.SetActive(true);
+        Instantiate(helper, helperPos.transform.position, helperPos.transform.rotation);
 
-        if (helperPos != null)
-        {
-            Instantiate(helper, helperPos.transform.position, helperPos.transform.rotation);
-        }
-        else
-        {
-            Debug.LogError("helperPos가 설정되지 않았습니다.");
-        }
-
-        //Instantiate(medicinePortal, portalPos.transform.position, portalPos.transform.rotation);
-        //Instantiate(mon1, monPos1.transform.position, monPos1.transform.rotation);
-        //Instantiate(mon2, monPos2.transform.position, monPos2.transform.rotation);
-        //Instantiate(mon3, monPos3.transform.position, monPos3.transform.rotation);
-        //startPanel.SetActive(false);
-        //start = true;
-        //textPanel.SetActive(true);
-        //Instantiate(helper, helperPos.transform.position, helperPos.transform.rotation);
-
-
+        
     }
 
 
@@ -184,24 +116,14 @@ public class GameManager : MonoBehaviour
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     public void appearGun()
     {
         Instantiate(Gun, GunPos.transform.position, GunPos.transform.rotation);
         isGun = true;
     }
+
+
+
 
     public void nextText()
     {
@@ -209,11 +131,11 @@ public class GameManager : MonoBehaviour
     }
     
 
+
+
     // Text의 내용을 변경
     private void setText(TMP_Text text, string str)
     {
         text.text = str;
     }
-
-
 }
