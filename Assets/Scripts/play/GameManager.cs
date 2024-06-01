@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     IEnumerator StartDialogue()
     {
         //startPanel.SetActive(false);
-        //start = true;
+        start = true;
         TimerPanel.SetActive(false);
         Instantiate(helper, helperPos.transform.position, helperPos.transform.rotation);
 
