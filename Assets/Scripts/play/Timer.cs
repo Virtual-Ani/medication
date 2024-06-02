@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Playables; 
 
 public class Timer : MonoBehaviour
 {
-    public float timeRemaining = 30; // 게임 제한 시간 
+    public float timeRemaining = 10; // 게임 제한 시간 
     public Text timerText; // 타이머표시 UI 텍스트
-    
+    public PlayableDirector director; // 타임라인을 재생할 PlayableDirector 컴포넌트
 
     void Update()
     {
@@ -17,7 +18,9 @@ public class Timer : MonoBehaviour
         else
         {
             Debug.Log("시간 종료!");
-            // 여기에 엔딩씬?혹은 무언가 이벤트 넣으면 될꺼같습니다.
+            director.Play(); // PlayableDirector를 통해 타임라인 재생
+            // 시간이 종료되었을 때 한 번만 실행되도록 하려면, enabled = false; 추가
+            enabled = false; // 이 코드를 추가하면 타이머가 멈추고 Update 함수가 더 이상 호출되지 않음
         }
     }
 
@@ -32,7 +35,7 @@ public class Timer : MonoBehaviour
 
     public void StartTimer()
     {
-        timeRemaining = 30; // 타이머 시간 초기화 (필요한 시간으로 설정)
+        timeRemaining = 10; // 타이머 시간 초기화 (필요한 시간으로 설정)
         enabled = true; // Update 함수가 작동하도록 Timer 스크립트를 활성화
         
     }
