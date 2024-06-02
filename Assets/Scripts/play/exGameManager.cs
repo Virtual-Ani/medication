@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+
 public class exGameManager : MonoBehaviour
 {
     public GameObject textPanel; //자막 패널
@@ -26,19 +27,25 @@ public class exGameManager : MonoBehaviour
     public GameObject medicinePortal; //약포탈
     public GameObject potion; //포션 에셋
 
+    public GameObject startBtn;
 
 
     private bool start = false;
-    private int explainInt = 0; //상황설명시 자막의 기준이 되는 변&
+    private int explainInt = 0; //상황설명시 자막의 기준이 되는 변수
 
     public float delayInSeconds = 3f;
 
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine(DelayedStart(5.0f));
+        textPanel.SetActive(false);
+        
+    }
+
+    public void OnStartButtonClicked()
+    {
         textPanel.SetActive(true);
-        uiStr = "곧 '약먹는 용사들'이 시작됩니다..";
+        uiStr = "곧 '약먹는 용사들'이 시작됩니다";
         setText(mainText, uiStr);
         StartCoroutine(StartExplain()); // 대화 시작 코루틴 호출
     }
@@ -50,13 +57,7 @@ public class exGameManager : MonoBehaviour
 
     }*/
 
-    private IEnumerator DelayedStart(float delay)
-    {
-        yield return new WaitForSeconds(delay);
 
-        textPanel.SetActive(false);
-        Debug.Log("기다렸땅");
-    }
 
     public void startPlay()
     {
@@ -68,44 +69,6 @@ public class exGameManager : MonoBehaviour
         potionPos = GameObject.Find("MedicineSpot");
 
 
-        if (portalPos != null)
-        {
-            Instantiate(medicinePortal, portalPos.transform.position, portalPos.transform.rotation);
-        }
-        else
-        {
-            Debug.LogError("portalPos가 설정되지 않았습니다.");
-        }
-
-        if (monPos1 != null)
-        {
-            Instantiate(mon1, monPos1.transform.position, monPos1.transform.rotation);
-        }
-        else
-        {
-            Debug.LogError("monPos1가 설정되지 않았습니다.");
-        }
-
-        if (monPos2 != null)
-        {
-            Instantiate(mon2, monPos2.transform.position, monPos2.transform.rotation);
-        }
-        else
-        {
-            Debug.LogError("monPos2가 설정되지 않았습니다.");
-        }
-
-        if (monPos3 != null)
-        {
-            Instantiate(mon3, monPos3.transform.position, monPos3.transform.rotation);
-        }
-        else
-        {
-            Debug.LogError("monPos3가 설정되지 않았습니다.");
-        }
-
-
-
         Instantiate(medicinePortal, portalPos.transform.position, portalPos.transform.rotation);
         Instantiate(mon1, monPos1.transform.position, monPos1.transform.rotation);
         Instantiate(mon2, monPos2.transform.position, monPos2.transform.rotation);
@@ -115,13 +78,14 @@ public class exGameManager : MonoBehaviour
         Instantiate(potion, potionPos.transform.position, potionPos.transform.rotation);
 
         start = true;
-        textPanel.SetActive(true);
+       
     }
 
     IEnumerator StartExplain()
     {
         //startPanel.SetActive(false);
         //start = true;
+        startBtn.SetActive(false); // start버튼 비활성화
         yield return new WaitForSeconds(5f); // 5초 대기
         Debug.Log("기다렸땅");
         startPlay();
