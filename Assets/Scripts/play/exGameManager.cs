@@ -65,7 +65,7 @@ public class exGameManager : MonoBehaviour
         monPos3 = GameObject.Find("MonsterSpot3");
         portalPos = GameObject.Find("MedicineSpot");
         helperPos = GameObject.Find("HelperSpot");
-        //potionPos = GameObject.Find("MedicineSpot");
+        potionPos = GameObject.Find("MedicineSpot");
 
 
         if (portalPos != null)
@@ -112,6 +112,8 @@ public class exGameManager : MonoBehaviour
         Instantiate(mon3, monPos3.transform.position, monPos3.transform.rotation);
 
         Instantiate(helper, helperPos.transform.position, helperPos.transform.rotation);
+        Instantiate(potion, potionPos.transform.position, potionPos.transform.rotation);
+
         start = true;
         textPanel.SetActive(true);
     }
