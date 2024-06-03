@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
         {
             uiStr = "세균을 물리쳐줘!";
             setText(mainText, uiStr);
-            appearGun();
+            //appearGun();
         }
     }
 
@@ -161,11 +161,11 @@ public class GameManager : MonoBehaviour
         return monsterPrefab;
     }
 
-    public void appearGun()
+    /*public void appearGun()
     {
         Instantiate(Gun, GunPos.transform.position, GunPos.transform.rotation);
         isGun = true;
-    }
+    }*/
 
 
     /*public void nextText()
