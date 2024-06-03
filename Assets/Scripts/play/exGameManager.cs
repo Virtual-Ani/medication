@@ -32,7 +32,7 @@ public class exGameManager : MonoBehaviour
 
 
     private bool start = false;
-    private bool putMedicine = false;
+    public bool putMedicine = false;
     private int explainInt = 0; //상황설명시 자막의 기준이 되는 변수
 
     public float delayInSeconds = 3f;
