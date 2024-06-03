@@ -763,10 +763,7 @@ MonoBehaviour:
   mon1: {fileID: 919132149155446097, guid: f4b13dc7f43d97d42a3a0dbcedd3324d, type: 3}
   mon2: {fileID: 919132149155446097, guid: 0f5149152c05421479148de9ccb376bc, type: 3}
   mon3: {fileID: 919132149155446097, guid: 5ad09c6354e53a44d9da1373622cc2cf, type: 3}
-  portalPos: {fileID: 0}
-  medicinePortal: {fileID: 0}
-  potion: {fileID: 1714471722824790, guid: c1b6b0bde028f334d8c49cc823b4d190, type: 3}
-  monsterPrefab: {fileID: 919132149155446097, guid: 2b214e05d864a490ab7c857615c022ac, type: 3}
+  monsterPrefab: {fileID: 919132149155446097, guid: f4b13dc7f43d97d42a3a0dbcedd3324d, type: 3}
   spawnArea: {fileID: 424430798}
   spawnRadius: 10
   numberOfMonsters: 2
@@ -2638,7 +2635,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 94}
   m_SizeDelta: {x: 0, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &269381604
@@ -6492,14 +6489,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 701501802}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 122.6}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 400}
   m_LocalScale: {x: 0.5405405, y: 0.5405405, z: 0.5405405}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1754051402}
   - {fileID: 269381603}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1466280128}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -14738,7 +14735,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 701501806}
   m_Father: {fileID: 1951558363}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &1466280129
@@ -23007,7 +23005,6 @@ SceneRoots:
   - {fileID: 1247365436}
   - {fileID: 410891758}
   - {fileID: 18537094}
-  - {fileID: 701501806}
   - {fileID: 885091168}
   - {fileID: 424430798}
   - {fileID: 998510957}
