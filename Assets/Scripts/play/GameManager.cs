@@ -13,9 +13,9 @@ public class GameManager : MonoBehaviour
     public GameObject helper; //도우미 캐릭
     public GameObject helperPos; //도우미 캐릭 생성장소
 
-    public GameObject Gun; //총 오브젝트
-    public GameObject GunPos; //총 생길위치
-    private bool isGun = false; //총이 있는지
+    //public GameObject Gun; //총 오브젝트
+    //public GameObject GunPos; //총 생길위치
+    //private bool isGun = false; //총이 있는지
 
     public GameObject mon1; //몹 캐릭1
     public GameObject mon2; //몹 캐릭2
@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
         {
             uiStr = "세균을 물리쳐줘!";
             setText(mainText, uiStr);
-            appearGun();
+            //appearGun();
         }
     }
 
@@ -161,11 +161,11 @@ public class GameManager : MonoBehaviour
         return monsterPrefab;
     }
 
-    public void appearGun()
-    {
-        Instantiate(Gun, GunPos.transform.position, GunPos.transform.rotation);
-        isGun = true;
-    }
+    //public void appearGun()
+    //{
+    //    Instantiate(Gun, GunPos.transform.position, GunPos.transform.rotation);
+    //    isGun = true;
+    //}
 
 
     /*public void nextText()

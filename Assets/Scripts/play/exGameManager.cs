@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class exGameManager : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class exGameManager : MonoBehaviour
 
     private GameObject portalPos;//약포탈 위치
     private GameObject potionPos;//포션 위치
-
+    private GameObject medicineCol; //약을 놓았는지 판단하는 콜리더
 
     public GameObject medicinePortal; //약포탈
     public GameObject potion; //포션 에셋
@@ -31,6 +32,7 @@ public class exGameManager : MonoBehaviour
 
 
     private bool start = false;
+    private bool putMedicine = false;
     private int explainInt = 0; //상황설명시 자막의 기준이 되는 변수
 
     public float delayInSeconds = 3f;
@@ -75,7 +77,7 @@ public class exGameManager : MonoBehaviour
         Instantiate(mon3, monPos3.transform.position, monPos3.transform.rotation);
 
         Instantiate(helper, helperPos.transform.position, helperPos.transform.rotation);
-        Instantiate(potion, potionPos.transform.position, potionPos.transform.rotation);
+        //Instantiate(potion, potionPos.transform.position, potionPos.transform.rotation);
 
         start = true;
        
@@ -91,38 +93,74 @@ public class exGameManager : MonoBehaviour
         startPlay();
 
 
-        while (explainInt < 6) // 설명 텍스트가 더 이상 없을 때까지 반복
+        while (explainInt < 4) // 설명 텍스트가 더 이상 없을 때까지 반복
         {
             setExplainUI();
             yield return new WaitForSeconds(2f); // 2초 대기
             explainInt++; // 다음 텍스트로 넘어감
         }
+
+        
+
+        if (putMedicine)
+        {
+            yield return new WaitForSeconds(2f); // 2초 대기
+            uiStr = "약은 이제 포션이 되었고, 먹으면 힘이 세질거야!";
+            setText(mainText, uiStr);
+            yield return new WaitForSeconds(2f); // 2초 대기
+            uiStr = "포션을 집어서 먹고 용사가 되어보자!";
+            setText(mainText, uiStr);
+        }
         EndDialogue();
 
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("hand"))
+        {
+            uiStr = "잘했어, 약을 놓았구나!";
+            setText(mainText, uiStr);
+            Debug.Log("충돌! 약 놓았다");
+
+            putMedicine = true;
+        }
+    }
+
+
 
     public void setExplainUI()
     {
 
         if (explainInt == 0)
         {
-            uiStr = "7초 후에 총이 생길 거고,\n 컨트롤러로 총을 조작해서 세균들을 물리쳐주면 돼!";
+            uiStr = "안녕! 나는 친구가 용사가 될 수 있도록 도와줄 튼튼이라고해!";
             setText(mainText, uiStr);
         }
 
         if (explainInt == 1)
         {
-            uiStr = "제한시간은 30초정도야.\n그럼 잘 부탁해!";
+            uiStr = "몸에 나쁜 세균들이 몰려와서 우리를 괴롭히고있어! 저기 보이지?";
             setText(mainText, uiStr);
         }
 
         if (explainInt == 2)
         {
-            uiStr = "세균을 물리쳐줘!";
+            uiStr = "친구가 세균을 물리쳐서 우리가 아프지않도록 도와줄 수 있을까?";
             setText(mainText, uiStr);
         }
 
+        if (explainInt == 3)
+        {
+            uiStr = "좋아, 그럼 포탈 가운데에 약을 놓아줘\n 그럼 힘이 생기는 포션이 생길거야!";
+            setText(mainText, uiStr);
+        }
+        //if (explainInt == 4 && takeMedicine)
+        //{
+        //    uiStr = "그 포션을 약과 함께 먹고 용사가 되어보자!";
+        //    setText(mainText, uiStr);
+        //}
     }
+
 
     void EndDialogue()
     {

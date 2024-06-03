@@ -23,6 +23,7 @@ public class SceneChanger : MonoBehaviour
         {
             guide.enabled = true; // 충돌시 안내텍스트 나타남
             countdownText.enabled = true; // 충돌 시 텍스트를 나타냄
+            Debug.Log("충돌! play gogo");
             StartCoroutine(ChangeSceneAfterDelay("PlayScene", 7)); // 코루틴 호출
         }
     }
