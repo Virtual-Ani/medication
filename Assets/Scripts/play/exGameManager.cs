@@ -39,7 +39,7 @@ public class exGameManager : MonoBehaviour
     void Start()
     {
         textPanel.SetActive(false);
-        
+        OnStartButtonClicked();
     }
 
     public void OnStartButtonClicked()
@@ -64,7 +64,7 @@ public class exGameManager : MonoBehaviour
         monPos1 = GameObject.Find("MonsterSpot1");
         monPos2 = GameObject.Find("MonsterSpot2");
         monPos3 = GameObject.Find("MonsterSpot3");
-        portalPos = GameObject.Find("MedicineSpot");
+        portalPos = GameObject.Find("PortalSpot");
         helperPos = GameObject.Find("HelperSpot");
         potionPos = GameObject.Find("MedicineSpot");
 
@@ -106,39 +106,22 @@ public class exGameManager : MonoBehaviour
 
         if (explainInt == 0)
         {
-            uiStr = "안녕! 나는 친구가 용사가 될 수 있도록 도와줄 튼튼이라고해!";
+            uiStr = "7초 후에 총이 생길 거고,\n 컨트롤러로 총을 조작해서 세균들을 물리쳐주면 돼!";
             setText(mainText, uiStr);
         }
 
         if (explainInt == 1)
         {
-            uiStr = "몸에 나쁜 세균들이 몰려와서 우리를 괴롭히고있어! 저기 보이지?";
+            uiStr = "제한시간은 30초정도야.\n그럼 잘 부탁해!";
             setText(mainText, uiStr);
         }
 
         if (explainInt == 2)
         {
-            uiStr = "친구가 세균을 물리쳐서 우리가 아프지않도록 도와줄 수 있을까?";
-            setText(mainText, uiStr);
-        }
-
-        if (explainInt == 3)
-        {
-            uiStr = "7초 후에 총이 생길 거고,\n 컨트롤러로 총을 조작해서 세균들을 물리쳐주면 돼!";
-            setText(mainText, uiStr);
-        }
-
-        if (explainInt == 4)
-        {
-            uiStr = "제한시간은 30초정도야.\n그럼 잘 부탁해!";
-            setText(mainText, uiStr);
-        }
-
-        if (explainInt == 5)
-        {
             uiStr = "세균을 물리쳐줘!";
             setText(mainText, uiStr);
         }
+
     }
 
     void EndDialogue()

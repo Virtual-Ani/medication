@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject helper; //도우미 캐릭
     public GameObject helperPos; //도우미 캐릭 생성장소
+
     public GameObject Gun; //총 오브젝트
     public GameObject GunPos; //총 생길위치
     private bool isGun = false; //총이 있는지
@@ -19,15 +20,6 @@ public class GameManager : MonoBehaviour
     public GameObject mon1; //몹 캐릭1
     public GameObject mon2; //몹 캐릭2
     public GameObject mon3; //몹 캐릭3
-    private GameObject monPos1; //몹 생길위치
-    private GameObject monPos2; //몹 생길위치
-    private GameObject monPos3; //몹 생길위치
-
-    public GameObject portalPos;//약포탈 위치
-
-
-    public GameObject medicinePortal; //약포탈
-    public GameObject potion; //포션 에셋
 
 
 
@@ -63,10 +55,7 @@ public class GameManager : MonoBehaviour
 
     /*public void startPlay()
     {
-        Instantiate(medicinePortal, portalPos.transform.position, portalPos.transform.rotation);
-        Instantiate(mon1, monPos1.transform.position, monPos1.transform.rotation);
-        Instantiate(mon2, monPos2.transform.position, monPos2.transform.rotation);
-        Instantiate(mon3, monPos3.transform.position, monPos3.transform.rotation);
+        
         startPanel.SetActive(false);
         start = true;
         textPanel.SetActive(true);
@@ -95,35 +84,17 @@ public class GameManager : MonoBehaviour
 
         if (explainInt == 0)
         {
-            uiStr = "안녕! 나는 친구가 용사가 될 수 있도록 도와줄 튼튼이라고해!";
+            uiStr = "이제 곧 총이 생기고,\n그 총으로 세균들을 물리쳐주면 돼!";
             setText(mainText, uiStr);
         }
 
         if (explainInt == 1)
         {
-            uiStr = "몸에 나쁜 세균들이 몰려와서 우리를 괴롭히고있어! 저기 보이지?";
-            setText(mainText, uiStr);
-        }
-
-        if (explainInt == 2)
-        {
-            uiStr = "친구가 세균을 물리쳐서 우리가 아프지않도록 도와줄 수 있을까?";
-            setText(mainText, uiStr);
-        }
-
-        if (explainInt == 3)
-        {
-            uiStr = "이제 곧 총이 생기고,\n그 총으로 세균들을 물리쳐주면 돼!";
-            setText(mainText, uiStr);
-        }
-
-        if (explainInt == 4)
-        {
             uiStr = "제한시간은 30초정도야.\n그럼 잘 부탁해!";
             setText(mainText, uiStr);
         }
 
-        if (explainInt == 5)
+        if (explainInt == 2)
         {
             uiStr = "세균을 물리쳐줘!";
             setText(mainText, uiStr);
@@ -142,6 +113,7 @@ public class GameManager : MonoBehaviour
     void SpawnMonster()
     {
         Vector3 randomPos = GetRandomPosition();
+        monsterPrefab = GetRandomMon();
         GameObject spawnedMonster = Instantiate(monsterPrefab, randomPos, Quaternion.identity);
         StartCoroutine(DisappearMonster(spawnedMonster)); // 세균 사라짐과 재생성을 관리하는 코루틴
     }
@@ -172,6 +144,21 @@ public class GameManager : MonoBehaviour
         randomPos += spawnArea.position; // spawnArea를 중심으로 위치 조정
         randomPos.y = 0; // Y축 위치 조정
         return randomPos;
+    }
+  
+    GameObject GetRandomMon()
+    {
+        int random = Random.Range(0, 3);
+        if(random == 0)
+        {
+            monsterPrefab = mon1;
+        }
+        else if(random == 1)
+        {
+            monsterPrefab = mon2;
+        }
+        else { monsterPrefab = mon3;}
+        return monsterPrefab;
     }
 
     public void appearGun()
