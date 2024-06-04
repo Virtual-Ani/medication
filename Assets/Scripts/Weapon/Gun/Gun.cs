@@ -14,9 +14,10 @@ public class Gun : MonoBehaviour
     public UnityEvent OnRelease;//놓을때
     private InputDevice targetDevice;
 
-    [SerializeField] public GameObject btnMapper;
+    [SerializeField]public GameObject btnMapper;
     private void Start()
     {
+        //btnMapper = GameObject.FindWithTag("ButtonMapper");
         // 오른손 Oculus Touch 컨트롤러를 찾음
         InputDeviceCharacteristics rightControllerCharacteristics = InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller;
         targetDevice = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);

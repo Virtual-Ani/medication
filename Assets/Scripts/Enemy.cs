@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
 
         OnDestroyed?.Invoke();
 
-        //MonsterManager.Instance.OnDestroyed(this);
+        MonsterManager.Instance.OnDestroyed(this);
     }
 
 }
