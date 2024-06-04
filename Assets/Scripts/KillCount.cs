@@ -10,7 +10,7 @@ public class KillCount : MonoBehaviour
 
     private void UpdateUI()
     {
-        killCountTxt.text = $"Kill : \n{killcount}";
+        killCountTxt.text = $"Kill : {killcount}";
     }
     public void OnKill()
     {

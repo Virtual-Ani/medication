@@ -14438,6 +14438,7 @@ GameObject:
   - component: {fileID: 1369205727}
   - component: {fileID: 1369205729}
   - component: {fileID: 1369205728}
+  - component: {fileID: 1369205730}
   m_Layer: 5
   m_Name: KillCount
   m_TagString: Untagged
@@ -14561,6 +14562,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1369205726}
   m_CullTransparentMesh: 1
+--- !u!114 &1369205730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369205726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab6b69a10a0abcf43979c61613d17bfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  killCountTxt: {fileID: 1369205728}
 --- !u!1 &1395194471
 GameObject:
   m_ObjectHideFlags: 0
@@ -21870,7 +21884,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2043057170}
-  - component: {fileID: 2043057169}
   - component: {fileID: 2043057168}
   m_Layer: 0
   m_Name: MonsterManager
@@ -21894,7 +21907,7 @@ MonoBehaviour:
   OnDestroy:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2043057169}
+      - m_Target: {fileID: 1369205730}
         m_TargetAssemblyTypeName: KillCount, Assembly-CSharp
         m_MethodName: OnKill
         m_Mode: 1
@@ -21906,19 +21919,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2043057169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2043057167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab6b69a10a0abcf43979c61613d17bfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  killCountTxt: {fileID: 1369205728}
 --- !u!4 &2043057170
 Transform:
   m_ObjectHideFlags: 0

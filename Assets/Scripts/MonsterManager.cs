@@ -20,13 +20,10 @@ public class MonsterManager : MonoBehaviour
         }
     }
     public UnityEvent<Enemy> OnDestroy;
-
-    private List<Enemy> mons = new List<Enemy>();
     public void OnDestroyed(Enemy mon)
     {
-        if (mons.Remove(mon))
-        {
-            OnDestroy?.Invoke(mon);
-        }
+        OnDestroy?.Invoke(mon);
+        Debug.Log("몬스터죽임!!!");
     }
+
 }
