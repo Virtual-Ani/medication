@@ -31,12 +31,12 @@ public class GameManager : MonoBehaviour
 
     public GameObject monsterPrefab; // 몬스터 프리팹
     public Transform spawnArea; // 몬스터가 나타날 범위
-    public float spawnRadius = 5f; // 몬스터가 나타날 반경
+    public float spawnRadius = 3f; // 몬스터가 나타날 반경
     public int numberOfMonsters = 2;
 
     public Timer timerScript;
     public GameObject TimerPanel; // 타이머 패널
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -120,12 +120,12 @@ public class GameManager : MonoBehaviour
 
     // 몬스터 생성 함수
     void SpawnMonsters()
-    {
-        for (int i = 0; i < numberOfMonsters; i++)
-        {
-            // 이 위치에 몬스터를 생성
-            SpawnMonster();
-        }
+    {    
+            for (int i = 0; i < numberOfMonsters; i++)
+            {
+                // 이 위치에 몬스터를 생성
+                SpawnMonster();
+            }       
     }
 
     // 수정된 몬스터 사라짐 및 재생성 코루틴
@@ -142,7 +142,7 @@ public class GameManager : MonoBehaviour
     {
         Vector3 randomPos = Random.insideUnitSphere * spawnRadius;
         randomPos += spawnArea.position; // spawnArea를 중심으로 위치 조정
-        randomPos.y = 0; // Y축 위치 조정
+        randomPos.y = 2; // Y축 위치 조정
         return randomPos;
     }
   

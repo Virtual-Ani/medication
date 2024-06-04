@@ -9,7 +9,6 @@ public class Enemy : MonoBehaviour
     //생성과 파괴를 담당할 이벤트
     //public UnityEvent OnCreated;
     public UnityEvent OnDestroyed;
-
     private float destroyDelay = 1f;
     private bool isDestroyed = false;
 
