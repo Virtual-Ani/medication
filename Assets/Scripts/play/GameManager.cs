@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject monsterPrefab; // 몬스터 프리팹
     public Transform spawnArea; // 몬스터가 나타날 범위
-    public float spawnRadius = 10f; // 몬스터가 나타날 반경
+    public float spawnRadius = 5f; // 몬스터가 나타날 반경
     public int numberOfMonsters = 2;
 
     public Timer timerScript;
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
         TimerPanel.SetActive(false);
         Instantiate(helper, helperPos.transform.position, helperPos.transform.rotation);
 
-        while (explainInt < 6) // 설명 텍스트가 더 이상 없을 때까지 반복
+        while (explainInt < 3) // 설명 텍스트가 더 이상 없을 때까지 반복
         {
             setExplainUI();
             yield return new WaitForSeconds(2f); // 7초 대기
