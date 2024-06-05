@@ -69,7 +69,7 @@ public class exGameManager : MonoBehaviour
         portalPos = GameObject.Find("PortalSpot");
         helperPos = GameObject.Find("HelperSpot");
         potionPos = GameObject.Find("MedicineSpot");
-
+        medicineCol = GameObject.Find("Cube_Med");
 
         Instantiate(medicinePortal, portalPos.transform.position, portalPos.transform.rotation);
         Instantiate(mon1, monPos1.transform.position, monPos1.transform.rotation);
@@ -100,31 +100,39 @@ public class exGameManager : MonoBehaviour
             explainInt++; // 다음 텍스트로 넘어감
         }
 
+        // while 루프 내에서 putMedicine을 체크하도록 수정
+        while (!putMedicine)
+        {
+            yield return null; // 매 프레임 대기
+        }
+
+        Debug.Log("약 놓은 거 화긴~~~");
+        medicineCol.SetActive(false);
+        Instantiate(potion, potionPos.transform.position, potionPos.transform.rotation);
+
+
+        yield return new WaitForSeconds(2f); // 2초 대기
+        uiStr = "약은 이제 포션이 되었고, 먹으면 힘이 세질거야!";
+        setText(mainText, uiStr);
+        yield return new WaitForSeconds(2f); // 2초 대기
+        uiStr = "포션을 집어서 먹고 용사가 되어보자!";
+        setText(mainText, uiStr);
+        EndDialogue();
+        
         
 
-        if (putMedicine)
-        {
-            yield return new WaitForSeconds(2f); // 2초 대기
-            uiStr = "약은 이제 포션이 되었고, 먹으면 힘이 세질거야!";
-            setText(mainText, uiStr);
-            yield return new WaitForSeconds(2f); // 2초 대기
-            uiStr = "포션을 집어서 먹고 용사가 되어보자!";
-            setText(mainText, uiStr);
-        }
-        EndDialogue();
-
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("hand"))
-        {
-            uiStr = "잘했어, 약을 놓았구나!";
-            setText(mainText, uiStr);
-            Debug.Log("충돌! 약 놓았다");
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("hand"))
+    //    {
+    //        uiStr = "잘했어, 약을 놓았구나!";
+    //        setText(mainText, uiStr);
+    //        Debug.Log("충돌! 약 놓았다");
 
-            putMedicine = true;
-        }
-    }
+    //        putMedicine = true;
+    //    }
+    //}
 
 
 
@@ -153,6 +161,7 @@ public class exGameManager : MonoBehaviour
         {
             uiStr = "좋아, 그럼 포탈 가운데에 약을 놓아줘\n 그럼 힘이 생기는 포션이 생길거야!";
             setText(mainText, uiStr);
+            putMedicine = false;
         }
         //if (explainInt == 4 && takeMedicine)
         //{

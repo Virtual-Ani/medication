@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 7510976418564638373}
   - component: {fileID: 2792948877605596878}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Cube_Med
   m_TagString: medicine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
