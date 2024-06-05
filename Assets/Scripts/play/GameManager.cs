@@ -142,7 +142,7 @@ public class GameManager : MonoBehaviour
     {
         Vector3 randomPos = Random.insideUnitSphere * spawnRadius;
         randomPos += spawnArea.position; // spawnArea를 중심으로 위치 조정
-        randomPos.y = 2; // Y축 위치 조정
+        randomPos.y = 1; // Y축 위치 조정
         return randomPos;
     }
   
