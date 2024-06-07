@@ -23410,10 +23410,10 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.24, y: 0.08, z: 0.1}
+  m_Center: {x: -0.08, y: 0.025, z: 0}
 --- !u!1 &1440089175
 GameObject:
   m_ObjectHideFlags: 0
@@ -27981,8 +27981,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.2, y: 0.08, z: 0.1}
-  m_Center: {x: 0.08, y: -0.01, z: 0}
+  m_Size: {x: 0.24, y: 0.08, z: 0.1}
+  m_Center: {x: 0.08, y: -0.02, z: 0}
 --- !u!1 &1717570520
 GameObject:
   m_ObjectHideFlags: 0
@@ -34620,10 +34620,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textPanel: {fileID: 1380846973}
   mainText: {fileID: 582588585}
-  helper: {fileID: 919132149155446097, guid: 0dcc3221445084e35b603fe255049683, type: 3}
-  mon1: {fileID: 919132149155446097, guid: f4b13dc7f43d97d42a3a0dbcedd3324d, type: 3}
-  mon2: {fileID: 919132149155446097, guid: 0f5149152c05421479148de9ccb376bc, type: 3}
-  mon3: {fileID: 919132149155446097, guid: 5ad09c6354e53a44d9da1373622cc2cf, type: 3}
+  helper: {fileID: 2370318986676467446, guid: 4cd4c503b7372c34b888da29284b2d0a, type: 3}
+  mon1: {fileID: 708472551563539643, guid: 62acbb1fe9520f543ab0b6747a434a63, type: 3}
+  mon2: {fileID: 4227104574586129139, guid: 4ba68cfc8dfe7844590c4f51d25fb3e3, type: 3}
+  mon3: {fileID: 755739795227337304, guid: edf286f86d4597e4b9ea9f0c3d7aed76, type: 3}
   medicinePortal: {fileID: 4932088507883938021, guid: 0e5709a7ddb77924090c112cf73bb98a, type: 3}
   potion: {fileID: 3339077921996754140, guid: 928ee5daf51edea4dac6699ba7d739e7, type: 3}
   startBtn: {fileID: 818448893}

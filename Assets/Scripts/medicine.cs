@@ -36,18 +36,18 @@ public class medicine : MonoBehaviour
         if (other.gameObject.CompareTag("medicine"))
         {
 
-            Debug.Log("충돌! 약 놓았다");
+            Debug.Log("충돌!! 약 놓았다" + other.name);
 
             exGameManager.putMedicine = true;
         }
-        else
-        {
-            Debug.Log("충돌!!!!!! ");
-            exGameManager.putMedicine = true;
-            if (exGameManager.putMedicine == true)
-            {
-                Debug.Log("약 놓았다!!!!!");
-            }
-        }
+        //else
+        //{
+        //    Debug.Log("충돌!!!!!! ");
+        //    exGameManager.putMedicine = true;
+        //    if (exGameManager.putMedicine == true)
+        //    {
+        //        Debug.Log("약 놓았다!!!!!");
+        //    }
+        //}
     }
 }

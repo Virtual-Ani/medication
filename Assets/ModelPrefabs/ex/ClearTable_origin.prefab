@@ -503,7 +503,7 @@ GameObject:
   - component: {fileID: 1241042557509072068}
   m_Layer: 9
   m_Name: Mesh
-  m_TagString: Untagged
+  m_TagString: medicine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
