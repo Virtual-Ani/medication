@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -940,10 +940,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textPanel: {fileID: 269381602}
   mainText: {fileID: 103839341}
-  mon1: {fileID: 1583007236385112303, guid: 861bd548a629ce24087b8ae53ab52aa3, type: 3}
-  mon2: {fileID: 6469009866261466231, guid: 1c937111bb8dc3444aa038c594777337, type: 3}
-  mon3: {fileID: 220112163167527093, guid: 2c8d119a04dd98041a90b452a6228993, type: 3}
-  monsterPrefab: {fileID: 1583007236385112303, guid: 861bd548a629ce24087b8ae53ab52aa3, type: 3}
+  mon1: {fileID: 1070965540549833717, guid: 452021ba83374460d8ce0dcf34885fe9, type: 3}
+  mon2: {fileID: 5182001704512727515, guid: ad3a08a16db5c448fa1902d2c000a5d1, type: 3}
+  mon3: {fileID: 6258117828402517178, guid: 8b98cc222a0ed4728a31f405582e195a, type: 3}
+  monsterPrefab: {fileID: 1070965540549833717, guid: 452021ba83374460d8ce0dcf34885fe9, type: 3}
   spawnArea: {fileID: 424430798}
   spawnRadius: 3
   numberOfMonsters: 2
