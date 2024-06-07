@@ -7,11 +7,10 @@ public class GameManager : MonoBehaviour
 {
     //public GameObject startPanel; //시작 패
     public GameObject textPanel; //자막 패널
-    public TMP_Text mainText; //자막 text
+    public Text mainText; //자막 text
     private string uiStr; // 자막에 들어갈 내용
 
-    public GameObject helper; //도우미 캐릭
-    public GameObject helperPos; //도우미 캐릭 생성장소
+
 
     //public GameObject Gun; //총 오브젝트
     //public GameObject GunPos; //총 생길위치
@@ -67,7 +66,6 @@ public class GameManager : MonoBehaviour
         //startPanel.SetActive(false);
         //start = true;
         TimerPanel.SetActive(false);
-        Instantiate(helper, helperPos.transform.position, helperPos.transform.rotation);
 
         while (explainInt < 3) // 설명 텍스트가 더 이상 없을 때까지 반복
         {
@@ -114,7 +112,7 @@ public class GameManager : MonoBehaviour
     {
         Vector3 randomPos = GetRandomPosition();
         monsterPrefab = GetRandomMon();
-        GameObject spawnedMonster = Instantiate(monsterPrefab, randomPos, Quaternion.identity);
+        GameObject spawnedMonster = Instantiate(monsterPrefab, randomPos, Quaternion.Euler(0,180,0));
         StartCoroutine(DisappearMonster(spawnedMonster)); // 세균 사라짐과 재생성을 관리하는 코루틴
     }
 
@@ -174,7 +172,7 @@ public class GameManager : MonoBehaviour
     }*/
     
     // Text의 내용을 변경
-    private void setText(TMP_Text text, string str)
+    private void setText(Text text, string str)
     {
         text.text = str;
     }

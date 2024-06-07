@@ -49,6 +49,7 @@ public class Shooter : MonoBehaviour
             if (magazine.Use())
             {
                 Shoot();
+                Debug.Log("รั น฿ป็");
             }
             else
             {

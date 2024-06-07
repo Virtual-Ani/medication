@@ -106,8 +106,10 @@ public class exGameManager : MonoBehaviour
             yield return null; // 매 프레임 대기
         }
 
+       // yield return new WaitForSeconds(10f); // 10초 대기
         Debug.Log("약 놓은 거 화긴~~~");
         medicineCol.SetActive(false);
+        yield return new WaitForSeconds(2f); // 2초 대기
         Instantiate(potion, potionPos.transform.position, potionPos.transform.rotation);
 
 
