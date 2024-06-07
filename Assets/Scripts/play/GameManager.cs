@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
     public int numberOfMonsters = 2;
 
     public Timer timerScript;
+    private Timer timer;
+    private bool isMonsterSpawning = true;
     public GameObject TimerPanel; // 타이머 패널
     
     // Start is called before the first frame update
@@ -42,6 +44,9 @@ public class GameManager : MonoBehaviour
         //Invoke("ActivateObject", delayInSeconds);
         //textPanel.SetActive(false);
         StartCoroutine(StartDialogue()); // 대화 시작 코루틴 호출
+        timer = FindObjectOfType<Timer>(); // 타이머 스크립트의 인스턴스를 찾아 참조
+        timer.OnTimerEnded += StopMonsterSpawn; // 타이머가 끝났을 때 StopMonsterSpawn 메서드 호출
+
     }
 
     /*// Update is called once per frame
@@ -66,6 +71,8 @@ public class GameManager : MonoBehaviour
         //startPanel.SetActive(false);
         //start = true;
         TimerPanel.SetActive(false);
+        //Instantiate(helper, helperPos.transform.position, helperPos.transform.rotation);
+
 
         while (explainInt < 3) // 설명 텍스트가 더 이상 없을 때까지 반복
         {
@@ -118,12 +125,14 @@ public class GameManager : MonoBehaviour
 
     // 몬스터 생성 함수
     void SpawnMonsters()
-    {    
+    {
+        if (isMonsterSpawning)
+        {
             for (int i = 0; i < numberOfMonsters; i++)
             {
-                // 이 위치에 몬스터를 생성
                 SpawnMonster();
-            }       
+            }
+        }
     }
 
     // 수정된 몬스터 사라짐 및 재생성 코루틴
@@ -131,8 +140,11 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(3f); // 3초 대기
         Destroy(monster); // 몬스터 오브젝트 파괴
-        yield return new WaitForSeconds(3f); // 다시 3초 대기
-        SpawnMonster();
+        if (isMonsterSpawning) // 몬스터 재생성 중지
+        {
+            yield return new WaitForSeconds(3f);
+            SpawnMonster();
+        }
     }
 
     // 무작위 위치 생성 함수
@@ -170,7 +182,13 @@ public class GameManager : MonoBehaviour
     {
         explainInt++;
     }*/
-    
+
+    public void StopMonsterSpawn()
+    {
+        isMonsterSpawning = false;
+        StopAllCoroutines(); // 모든 코루틴 중지
+    }
+
     // Text의 내용을 변경
     private void setText(Text text, string str)
     {
