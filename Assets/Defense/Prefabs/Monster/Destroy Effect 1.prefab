@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2555293410040407638}
   - component: {fileID: 7256425273874606117}
   m_Layer: 0
-  m_Name: Destroy Effect
+  m_Name: Destroy Effect 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4900,7 +4900,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6229850614126690129}
   - component: {fileID: 784027693111201943}
-  - component: {fileID: 3899890469838229649}
+  - component: {fileID: 5142560911383819894}
   m_Layer: 0
   m_Name: Explosion Audio
   m_TagString: Untagged
@@ -4933,7 +4933,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a52e5ebd00e83284f8e0e671a78dc48b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: db62e7eb17c851a44b6d37658a45e147, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
@@ -5019,7 +5019,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &3899890469838229649
+--- !u!114 &5142560911383819894
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

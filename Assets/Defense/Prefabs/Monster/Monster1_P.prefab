@@ -90,6 +90,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4074484069371701698}
+        m_TargetAssemblyTypeName: PlaySFX, Assembly-CSharp
+        m_MethodName: Call
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!135 &1364862612566009808
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -168,6 +180,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1206a164d4a675548b1f592525ba8ab2, type: 3}
+--- !u!114 &4074484069371701698 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3899890469838229649, guid: 1206a164d4a675548b1f592525ba8ab2, type: 3}
+  m_PrefabInstance: {fileID: 1050543864496060755}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75a1b2d5d4467e94db0af0df9d653166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &7647191620080013686 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 7256425273874606117, guid: 1206a164d4a675548b1f592525ba8ab2, type: 3}
