@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class KillCount : MonoBehaviour
 {
-    public int killcount;
+    public static int killcount;
     public TMP_Text killCountTxt; //몬스터죽인수 text
     
 
