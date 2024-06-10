@@ -41,7 +41,7 @@ public class Timer : MonoBehaviour
 
     public void StartTimer()
     {
-        timeRemaining = 10; // 타이머 시간 초기화 (필요한 시간으로 설정)
+        timeRemaining = 20; // 타이머 시간 초기화 (필요한 시간으로 설정) <- 여기서 게임 시간 설정한다 
         enabled = true; // Update 함수가 작동하도록 Timer 스크립트를 활성화
     }
 

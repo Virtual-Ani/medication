@@ -177,13 +177,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1026054942332653585}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalRotation: {x: 0.41052696, y: -0.57573223, z: -0.57573223, w: 0.41052696}
   m_LocalPosition: {x: -0.118, y: -0.316, z: 0.038}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5688804999044762272}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: -90}
+  m_LocalEulerAnglesHint: {x: -19.018, y: -90, z: -90}
 --- !u!1 &1506169846678247314
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +240,7 @@ Transform:
   m_GameObject: {fileID: 1768776373647182212}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0.472, y: -0.3, z: 0.04}
+  m_LocalPosition: {x: 0.472, y: -0.135, z: 0.495}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -402,7 +402,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3512693859063225927}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -759,13 +759,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6559524928119469580}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0.52, y: 0.47, z: 0.238}
+  m_LocalRotation: {x: 0.5554734, y: -0.49794286, z: -0.43754938, w: 0.5020487}
+  m_LocalPosition: {x: 0.52, y: 0.414, z: 0.161}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5688804999044762272}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: -90}
+  m_LocalEulerAnglesHint: {x: 7.008, y: -96.537, z: -90}
 --- !u!1 &6792263772905266613
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,6 +803,7 @@ Transform:
   - {fileID: 3673424611071877768}
   - {fileID: 5851568610210577837}
   - {fileID: 883609307331166334}
+  - {fileID: 6503008036090214271}
   m_Father: {fileID: 2268108509575992954}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8318741311378936983
@@ -829,10 +830,41 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8318741311378936983}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0.39, y: 0.04, z: 0.23}
+  m_LocalRotation: {x: 0.5242982, y: -0.5242982, z: -0.47445905, w: 0.47445905}
+  m_LocalPosition: {x: 0.39, y: 0.136, z: 0.487}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5688804999044762272}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: -95.714, z: -90}
+--- !u!1 &8495638163469608432
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6503008036090214271}
+  m_Layer: 0
+  m_Name: MonsterSpot4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6503008036090214271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8495638163469608432}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.43332782, y: -0.5587728, z: -0.5587728, w: 0.43332782}
+  m_LocalPosition: {x: 0.472, y: -0.3, z: 0.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5688804999044762272}
+  m_LocalEulerAnglesHint: {x: -14.413, y: -90, z: -90}
