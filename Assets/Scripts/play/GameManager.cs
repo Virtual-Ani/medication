@@ -5,28 +5,24 @@ using UnityEngine.UI;
 using TMPro;
 public class GameManager : MonoBehaviour
 {
-    //public GameObject startPanel; //시작 패
+    //public GameObject startPanel; //시작 패널
     public GameObject textPanel; //자막 패널
     public Text mainText; //자막 text
     private string uiStr; // 자막에 들어갈 내용
 
 
-
-    //public GameObject Gun; //총 오브젝트
-    //public GameObject GunPos; //총 생길위치
-    //private bool isGun = false; //총이 있는지
-
     public GameObject mon1; //몹 캐릭1
     public GameObject mon2; //몹 캐릭2
     public GameObject mon3; //몹 캐릭3
+    public GameObject mon4; //몹 캐릭3
 
 
 
     //public Button startBtn; //startPanel_startBtn
     private bool start = false;
-    private int explainInt = 0; //상황설명시 자막의 기준이 되는 변&
+    private int explainInt = 0; //상황설명시 자막의 기준이 되는 변수
 
-    //public float delayInSeconds = 3f;
+
 
     public GameObject monsterPrefab; // 몬스터 프리팹
     public Transform spawnArea; // 몬스터가 나타날 범위
@@ -49,13 +45,6 @@ public class GameManager : MonoBehaviour
 
     }
 
-    /*// Update is called once per frame
-    void Update()
-    {
-        setExplainUI(); //ExplainUI 관리
-
-    }*/
-
 
     /*public void startPlay()
     {
@@ -74,10 +63,10 @@ public class GameManager : MonoBehaviour
         //Instantiate(helper, helperPos.transform.position, helperPos.transform.rotation);
 
 
-        while (explainInt < 3) // 설명 텍스트가 더 이상 없을 때까지 반복
+        while (explainInt < 4) // 설명 텍스트가 더 이상 없을 때까지 반복
         {
             setExplainUI();
-            yield return new WaitForSeconds(2f); // 7초 대기
+            yield return new WaitForSeconds(5f); // 5초 대기
             explainInt++; // 다음 텍스트로 넘어감
         }
         EndDialogue();
@@ -89,21 +78,26 @@ public class GameManager : MonoBehaviour
 
         if (explainInt == 0)
         {
-            uiStr = "이제 곧 총이 생기고,\n그 총으로 세균들을 물리쳐주면 돼!";
+            uiStr = "총이 보이지?\n그 총으로 세균들을 물리쳐주면 돼!";
             setText(mainText, uiStr);
         }
 
         if (explainInt == 1)
         {
-            uiStr = "제한시간은 30초정도야.\n그럼 잘 부탁해!";
+            uiStr = "총을 잡고 트리거버튼을 누르면 총알이 나갈거야.\n총알 장전은 A, B버튼을 눌러줘";
             setText(mainText, uiStr);
         }
 
         if (explainInt == 2)
         {
+            uiStr = "제한시간은 30초정도야.\n그럼 잘 부탁해!";
+            setText(mainText, uiStr);
+        }
+
+        if (explainInt == 3)
+        {
             uiStr = "세균을 물리쳐줘!";
             setText(mainText, uiStr);
-            //appearGun();
         }
     }
 
@@ -138,11 +132,11 @@ public class GameManager : MonoBehaviour
     // 수정된 몬스터 사라짐 및 재생성 코루틴
     IEnumerator DisappearMonster(GameObject monster)
     {
-        yield return new WaitForSeconds(3f); // 3초 대기
+        yield return new WaitForSeconds(4f); // 4초 대기
         Destroy(monster); // 몬스터 오브젝트 파괴
         if (isMonsterSpawning) // 몬스터 재생성 중지
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f);
             SpawnMonster();
         }
     }
@@ -158,7 +152,7 @@ public class GameManager : MonoBehaviour
   
     GameObject GetRandomMon()
     {
-        int random = Random.Range(0, 3);
+        int random = Random.Range(0, 4);
         if(random == 0)
         {
             monsterPrefab = mon1;
@@ -167,21 +161,17 @@ public class GameManager : MonoBehaviour
         {
             monsterPrefab = mon2;
         }
-        else { monsterPrefab = mon3;}
+        else if (random == 2)
+        {
+            monsterPrefab = mon3;
+        }
+        else { monsterPrefab = mon4;}
         return monsterPrefab;
     }
 
-    //public void appearGun()
-    //{
-    //    Instantiate(Gun, GunPos.transform.position, GunPos.transform.rotation);
-    //    isGun = true;
-    //}
 
 
-    /*public void nextText()
-    {
-        explainInt++;
-    }*/
+
 
     public void StopMonsterSpawn()
     {
