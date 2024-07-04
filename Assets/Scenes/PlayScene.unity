@@ -3716,6 +3716,11 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.009499997, y: 0.01770607, z: -0.0011095554}
     m_Extent: {x: 0.04527676, y: 0.05372102, z: 0.06648618}
   m_DirtyAABB: 0
+--- !u!198 &370875898 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4771985031574402339, guid: 13925380ace109e44a8d88af32d6ebc1, type: 3}
+  m_PrefabInstance: {fileID: 2029761907623941599}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &373231884
 GameObject:
   m_ObjectHideFlags: 0
@@ -5739,7 +5744,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4177561446317065443, guid: 6b24237a75fa0a0459e8ae63421d1ea0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8384923341450591849, guid: 6b24237a75fa0a0459e8ae63421d1ea0, type: 3}
       propertyPath: btnMapper
@@ -25530,6 +25535,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3877036676785101944, guid: 13925380ace109e44a8d88af32d6ebc1, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877036676785101944, guid: 13925380ace109e44a8d88af32d6ebc1, type: 3}
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
@@ -25573,26 +25582,90 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4121304008997359081, guid: 13925380ace109e44a8d88af32d6ebc1, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 0.12941177
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121304008997359081, guid: 13925380ace109e44a8d88af32d6ebc1, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121304008997359081, guid: 13925380ace109e44a8d88af32d6ebc1, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121304008997359081, guid: 13925380ace109e44a8d88af32d6ebc1, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.b
+      value: 0.12941177
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121304008997359081, guid: 13925380ace109e44a8d88af32d6ebc1, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121304008997359081, guid: 13925380ace109e44a8d88af32d6ebc1, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4605940251595509482, guid: 13925380ace109e44a8d88af32d6ebc1, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4605940251595509482, guid: 13925380ace109e44a8d88af32d6ebc1, type: 3}
       propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4771985031574402339, guid: 13925380ace109e44a8d88af32d6ebc1, type: 3}
+      propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4771985031574402339, guid: 13925380ace109e44a8d88af32d6ebc1, type: 3}
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4771985031574402339, guid: 13925380ace109e44a8d88af32d6ebc1, type: 3}
+      propertyPath: InitialModule.startRotation.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4771985031574402339, guid: 13925380ace109e44a8d88af32d6ebc1, type: 3}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4771985031574402339, guid: 13925380ace109e44a8d88af32d6ebc1, type: 3}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5267616337952048874, guid: 13925380ace109e44a8d88af32d6ebc1, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5638303055147083472, guid: 13925380ace109e44a8d88af32d6ebc1, type: 3}
       propertyPath: m_Name
       value: Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 6394946549480971256, guid: 13925380ace109e44a8d88af32d6ebc1, type: 3}
+      propertyPath: playOnAwake
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6905115076378948175, guid: 13925380ace109e44a8d88af32d6ebc1, type: 3}
       propertyPath: btnMapper
       value: 
       objectReference: {fileID: 1228163193}
+    - target: {fileID: 7344163443701219817, guid: 13925380ace109e44a8d88af32d6ebc1, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7979744769999878686, guid: 13925380ace109e44a8d88af32d6ebc1, type: 3}
+      propertyPath: hitEffect
+      value: 
+      objectReference: {fileID: 6823302871133167919, guid: 3138a83bedbd6ad4481ba0b061da2eb6, type: 3}
     - target: {fileID: 7979744769999878686, guid: 13925380ace109e44a8d88af32d6ebc1, type: 3}
       propertyPath: OnShootSuccess.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 2029761907623941600}
+      objectReference: {fileID: 370875898}
+    - target: {fileID: 8954428223994380781, guid: 13925380ace109e44a8d88af32d6ebc1, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8954428223994380781, guid: 13925380ace109e44a8d88af32d6ebc1, type: 3}
       propertyPath: playOnAwake
       value: 0
@@ -25602,11 +25675,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13925380ace109e44a8d88af32d6ebc1, type: 3}
---- !u!198 &2029761907623941600 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4771985031574402339, guid: 13925380ace109e44a8d88af32d6ebc1, type: 3}
-  m_PrefabInstance: {fileID: 2029761907623941599}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
