@@ -70,6 +70,7 @@ public class exGameManager : MonoBehaviour
         potionPos = GameObject.Find("MedicineSpot");
         medicineCol = GameObject.Find("Cube_Med");
 
+        //몬스터, 헬퍼 배치
         Instantiate(medicinePortal, portalPos.transform.position, portalPos.transform.rotation);
         Instantiate(mon1, monPos1.transform.position, monPos1.transform.rotation);
         Instantiate(mon2, monPos2.transform.position, monPos2.transform.rotation);
