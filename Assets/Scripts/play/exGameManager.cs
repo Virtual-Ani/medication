@@ -39,6 +39,20 @@ public class exGameManager : MonoBehaviour
 
     public float delayInSeconds = 3f;
 
+
+
+    private List<GameObject> monsters = new List<GameObject>();
+    private List<Vector3> targetPositions = new List<Vector3>();
+    private float moveSpeed = 2f;
+
+
+
+
+
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,16 +86,57 @@ public class exGameManager : MonoBehaviour
 
         //몬스터, 헬퍼 배치
         Instantiate(medicinePortal, portalPos.transform.position, portalPos.transform.rotation);
-        Instantiate(mon1, monPos1.transform.position, monPos1.transform.rotation);
-        Instantiate(mon2, monPos2.transform.position, monPos2.transform.rotation);
-        Instantiate(mon3, monPos3.transform.position, monPos3.transform.rotation);
-        Instantiate(mon4, monPos4.transform.position, monPos4.transform.rotation);
+        //Instantiate(mon1, monPos1.transform.position, monPos1.transform.rotation);
+        //Instantiate(mon2, monPos2.transform.position, monPos2.transform.rotation);
+        //Instantiate(mon3, monPos3.transform.position, monPos3.transform.rotation);
+        //Instantiate(mon4, monPos4.transform.position, monPos4.transform.rotation);
 
-        Instantiate(helper, helperPos.transform.position, helperPos.transform.rotation);
+        //Instantiate(helper, helperPos.transform.position, helperPos.transform.rotation);
+
+
+        monsters.Add(Instantiate(mon1, monPos1.transform.position, monPos1.transform.rotation));
+        monsters.Add(Instantiate(mon2, monPos2.transform.position, monPos2.transform.rotation));
+        monsters.Add(Instantiate(mon3, monPos3.transform.position, monPos3.transform.rotation));
+        monsters.Add(Instantiate(mon4, monPos4.transform.position, monPos4.transform.rotation));
+        GameObject helperObject = Instantiate(helper, helperPos.transform.position, helperPos.transform.rotation);
+
+
+
 
         start = true;
-       
+
+        //이동 목표 위치 설정
+        SetTargetPositions(helper.transform.position);
+
     }
+
+    void SetTargetPositions(Vector3 helperPosition)
+    {
+        foreach (var monster in monsters)
+        {
+            Vector3 randomOffset = new Vector3(Random.Range(-2f, 2f), 0, Random.Range(-2f, 2f));
+            targetPositions.Add(helperPosition + randomOffset);
+        }
+    }
+
+
+    void Update()
+    {
+        if (start)
+        {
+            for (int i = 0; i < monsters.Count; i++)
+            {
+                if (monsters[i] != null)
+                {
+                    // 몬스터들을 목표 위치로 이동시킴
+                    monsters[i].transform.position = Vector3.MoveTowards(monsters[i].transform.position, targetPositions[i], moveSpeed * Time.deltaTime);
+                }
+            }
+        }
+    }
+
+
+
 
     IEnumerator StartExplain()
     {

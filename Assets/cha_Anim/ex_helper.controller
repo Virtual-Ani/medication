@@ -33,10 +33,10 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -5475413603072432486}
-    m_Position: {x: 331.2849, y: 136.13129, z: 0}
+    m_Position: {x: 320, y: 150, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5411085350425854916}
-    m_Position: {x: 596.6481, y: 149.39948, z: 0}
+    m_Position: {x: 600, y: 150, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -54,7 +54,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Idle2(AGIA_Idle_surprise_01_hands_open_front)
+  m_Name: run
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -68,7 +68,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: eee9a319234048844b8dba3ca2012188, type: 2}
+  m_Motion: {fileID: 7400000, guid: b682e6ca072e71b45be46c0f8089af6b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -95,7 +95,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b9a868b4d6901ef4ea3c03fb4fa93b0f, type: 2}
+  m_Motion: {fileID: 7400000, guid: b682e6ca072e71b45be46c0f8089af6b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
